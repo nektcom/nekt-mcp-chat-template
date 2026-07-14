@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Shimmer for the "thinking" status line. A bright highlight sweeps left→right
+   across muted text (clipped to the glyphs) to signal that work is ongoing,
+   including during tool calls when no text is streaming. */
+.thinking-shimmer {
+  background-image: linear-gradient(90deg, #9ca3af 0%, #111827 50%, #9ca3af 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* will-change forces a compositing layer so the moving background-position
+     actually repaints on text-clipped elements (a Chrome quirk otherwise). */
+  will-change: background-position;
+  animation: thinking-shimmer 2s linear infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .thinking-shimmer {
+    background-image: linear-gradient(90deg, #6b7280 0%, #ffffff 50%, #6b7280 100%);
+  }
+}
+
+/* background-size is 200%, so sweeping background-position from 200% to 0% moves
+   the highlight continuously across the text and loops seamlessly. */
+@keyframes thinking-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0% 0; }
+}
