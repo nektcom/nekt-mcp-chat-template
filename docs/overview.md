@@ -5,7 +5,7 @@
 ## What it is
 
 A stateless Next.js chat app that lets end-users ask natural-language questions
-about data exposed by an MCP server — built for [Nekt](https://nekt.ai) MCP
+about data exposed by an MCP server — built for [Nekt](https://nekt.com) MCP
 servers with per-tenant scoped tokens, but pointed at any MCP server by
 changing a URL. It runs in two first-class modes: **standalone** (deploy as-is;
 connect via the built-in form or env prefills) or **embedded as an iframe**

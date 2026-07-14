@@ -1,6 +1,6 @@
 # Nekt MCP Chat — reference implementation
 
-A stateless Next.js chat app that lets end-users ask natural-language questions about their [Nekt](https://nekt.ai)-managed data. The browser supplies an MCP server URL + scoped token per request; the server runs an agentic loop (Vercel AI SDK `streamText`) against the tools discovered from that MCP server, using **one LLM configured per deployment via env vars**.
+A stateless Next.js chat app that lets end-users ask natural-language questions about their [Nekt](https://nekt.com)-managed data. The browser supplies an MCP server URL + scoped token per request; the server runs an agentic loop (Vercel AI SDK `streamText`) against the tools discovered from that MCP server, using **one LLM configured per deployment via env vars**.
 
 This repo is a **reference implementation** meant to be read by humans and AI agents alike. Fork it, restyle it, or lift just the backend — the patterns are the product.
 
